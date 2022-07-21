@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="section-content padding-y bg">
+<div class="container">
+
+<!-- ============================ COMPONENT 1 ================================= -->
+<div class="card">
+	<div class="row no-gutters">
+		<aside class="col-md-6">
+<article class="gallery-wrap">
+<div class="img-big-wrap">
+  <div> <a href="#"><img src="{{pr.img.url}}"></a></div>
+</div> <!-- slider-product.// -->
+<!--	<div class="thumbs-wrap">-->
+<!--	  <a href="#" class="item-thumb"> <img src="../images/items/1.jpg"></a>-->
+<!--	  <a href="#" class="item-thumb"> <img src="../images/items/2.jpg"></a>-->
+<!--	  <a href="#" class="item-thumb"> <img src="../images/items/3.jpg"></a>-->
+<!--	  <a href="#" class="item-thumb"> <img src="../images/items/4.jpg"></a>-->
+<!--	</div> &lt;!&ndash; slider-nav.// &ndash;&gt;-->
+</article> <!-- gallery-wrap .end// -->
+		</aside>
+		<main class="col-md-6 border-left">
+<article class="content-body">
+
+<h2 class="title">{{pr.name}}</h2>
+
+ <!-- rating-wrap.// -->
+
+<div class="mb-3">
+	<var class="price h4">₹ {{pr.price}}</var>
+<!--	<span class="text-muted">/per kg</span>-->
+</div> <!-- price-detail-wrap .// -->
+
+<p>{{pr.desc}}</p>
+
+
+<dl class="row">
+  <dt class="col-sm-3">Stocks left</dt>
+  <dd class="col-sm-9">{{pr.stock}}</dd>
+
+
+
+  <dt class="col-sm-3">Color</dt>
+  <dd class="col-sm-9">{{pr.color}}</dd>
+
+  <dt class="col-sm-3">Availability</dt>
+  <dd class="col-sm-9">{{ pr.available|yesno:"In Stock,Out of Stock" }}</dd>
+</dl>
+
+<hr>
+	<div class="form-row">
+		<div class="form-group col-md flex-grow-0">
+
+
+			<label>Quantity</label>
+			<div class="input-group mb-3 input-spinner">
+			  <div class="input-group-prepend">
+			    <button class="btn btn-light" type="button" id="button-plus"> + </button>
+			  </div>
+			  <input type="text" class="form-control" maxlength = "2" max="10" value="{{pr.stock}}">
+			  <div class="input-group-append">
+			    <button class="btn btn-light" type="button" id="button-minus"> &minus; </button>
+			  </div>
+
+			</div>
+
+
+		</div> <!-- col.// -->
+<!--		<div class="form-group col-md">-->
+<!--				<label>Select size</label>-->
+<!--				<div class="mt-1">-->
+<!--					<label class="custom-control custom-radio custom-control-inline">-->
+<!--					  <input type="radio" name="select_size" checked="" class="custom-control-input">-->
+<!--					  <div class="custom-control-label">Small</div>-->
+<!--					</label>-->
+
+<!--					<label class="custom-control custom-radio custom-control-inline">-->
+<!--					  <input type="radio" name="select_size" class="custom-control-input">-->
+<!--					  <div class="custom-control-label">Medium</div>-->
+<!--					</label>-->
+
+<!--					<label class="custom-control custom-radio custom-control-inline">-->
+<!--					  <input type="radio" name="select_size" class="custom-control-input">-->
+<!--					  <div class="custom-control-label">Large</div>-->
+<!--					</label>-->
+
+<!--				</div>-->
+<!--		</div> &lt;!&ndash; col.// &ndash;&gt;-->
+	</div> <!-- row.// -->
+
+
+
+	{% if pr.stock <= 0 %}
+
+	<h1 style="color:red"> Sorry, This Product is Out Of Stock.</h1>
+	{% else %}
+	<a href="#" class="btn  btn-primary"> Buy now </a>
+	<a href="{% url 'addcart' pr.id %}" class="btn  btn-outline-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+	{% endif %}
+</article> <!-- product-info-aside .// -->
+		</main> <!-- col.// -->
+	</div> <!-- row.// -->
+</div>
+
+{% endblock content %}

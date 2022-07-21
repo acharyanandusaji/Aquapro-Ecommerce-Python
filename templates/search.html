@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+</header><!-- sect-heading -->
+{% for i in pr %}
+<article class="card card-product-list">
+	<div class="row no-gutters">
+		<aside class="col-md-3">
+			<a href="{{i.get_url}}" class="img-wrap">
+<!--				<span class="badge badge-danger"> NEW </span>-->
+				<img src="{{i.img.url}}">
+			</a>
+		</aside> <!-- col.// -->
+		<div class="col-md-6">
+			<div class="info-main">
+				<a href="#" class="h5 title">{{i.name}}</a>
+				<div class="rating-wrap mb-3">
+					<ul class="rating-stars">
+						<li style="width:80%" class="stars-active">
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+						</li>
+						<li>
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+							<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+						</li>
+					</ul>
+					<div class="label-rating">7/10</div>
+				</div> <!-- rating-wrap.// -->
+
+				<p> {{i.desc}}} </p>
+			</div> <!-- info-main.// -->
+		</div> <!-- col.// -->
+		<aside class="col-sm-3">
+			<div class="info-aside">
+				<div class="price-wrap">
+					<span class="price h5">₹{{i.price}} </span>
+				</div> <!-- info-price-detail // -->
+				<p class="text-success">Free shipping</p>
+				<br>
+				<p>
+					<a href="#" class="btn btn-primary btn-block"> Details </a>
+					<a href="#" class="btn btn-light btn-block"><i class="fa fa-heart"></i>
+						<span class="text">Add to wishlist</span>
+					</a>
+				</p>
+			</div> <!-- info-aside.// -->
+		</aside> <!-- col.// -->
+	</div> <!-- row.// -->
+</article> <!-- card-product .// -->
+{% endfor %}
+
+
+
+{% endblock content %}

@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="section-content padding-y bg">
+<div class="container">
+
+<!-- ============================ COMPONENT 1 ================================= -->
+
+
+<div class="row">
+	<aside class="col-lg-9">
+<div class="card">
+<table class="table table-borderless table-shopping-cart">
+<thead class="text-muted">
+<tr class="small text-uppercase">
+  <th scope="col">Product</th>
+  <th scope="col" width="120">Quantity</th>
+  <th scope="col" width="120">Price</th>
+  <th scope="col" class="text-right" width="200"> </th>
+</tr>
+</thead>
+<tbody>
+{% for i in ci %}
+<tr>
+	<td>
+		<figure class="itemside align-items-center">
+			<div class="aside"><img src="{{i.prodt.img.url}}" class="img-sm"></div>
+			<figcaption class="info">
+				<a href="#" class="title text-dark">{{i.prodt.name}}</a>
+				<p class="text-muted small">Matrix: 25 Mpx <br> Brand: Canon</p>
+			</figcaption>
+		</figure>
+	</td>
+	<td>
+		<select class="form-control">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+		</select>
+	</td>
+	<td>
+		<div class="price-wrap">
+			<var class="price">₹ {{i.prodt.price}}</var>
+
+		</div> <!-- price-wrap .// -->
+	</td>
+	<td class="text-right">
+	<a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
+	<a href="" class="btn btn-light"> Remove</a>
+	</td>
+</tr>
+{% endfor %}
+
+<!--		<tr>-->
+<!--			<td>-->
+<!--				<figure class="itemside align-items-center">-->
+<!--					<div class="aside"><img src="../images/items/2.jpg" class="img-sm"></div>-->
+<!--					<figcaption class="info">-->
+<!--						<a href="#" class="title text-dark">ADATA Premier ONE microSDXC</a>-->
+<!--						<p class="text-muted small">Size: 256 GB  <br> Brand: ADATA </p>-->
+<!--					</figcaption>-->
+<!--				</figure>-->
+<!--			</td>-->
+<!--			<td>-->
+<!--				<select class="form-control">-->
+<!--					<option>1</option>-->
+<!--					<option>2</option>-->
+<!--					<option>3</option>-->
+<!--					<option>4</option>-->
+<!--				</select>-->
+<!--			</td>-->
+<!--			<td>-->
+<!--				<div class="price-wrap">-->
+<!--					<var class="price">{{i.prodt.price}}</var>-->
+<!--					<small  class="text-muted"> $75.00 each </small>-->
+<!--				</div> &lt;!&ndash; price-wrap .// &ndash;&gt;-->
+<!--			</td>-->
+<!--			<td class="text-right">-->
+<!--			<a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>-->
+<!--			<a href="" class="btn btn-light btn-round"> Remove</a>-->
+<!--			</td>-->
+<!--		</tr>-->
+
+<!--		<tr>-->
+<!--			<td>-->
+<!--				<figure class="itemside align-items-center">-->
+<!--					<div class="aside"><img src="../images/items/3.jpg" class="img-sm"></div>-->
+<!--					<figcaption class="info">-->
+<!--						<a href="#" class="title text-dark">Gamepad Sony DualShock 4</a>-->
+<!--						<p class="small text-muted">Version: CUH-ZCT2E  <br> Brand: Sony</p>-->
+<!--					</figcaption>-->
+<!--				</figure>-->
+<!--			</td>-->
+<!--			<td>-->
+<!--				<select class="form-control">-->
+<!--					<option>1</option>-->
+<!--					<option>2</option>-->
+<!--					<option>3</option>-->
+<!--				</select>-->
+<!--			</td>-->
+<!--			<td>-->
+<!--				<div class="price-wrap">-->
+<!--					<var class="price">$98.00</var>-->
+<!--					<small class="text-muted"> $578.00 each</small>-->
+<!--				</div> &lt;!&ndash; price-wrap .// &ndash;&gt;-->
+<!--			</td>-->
+<!--			<td class="text-right">-->
+<!--				<a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>-->
+<!--				<a href="" class="btn btn-light btn-round"> Remove</a>-->
+<!--			</td>-->
+<!--		</tr>-->
+</tbody>
+</table>
+
+<div class="card-body border-top">
+	<p class="icontext"><i class="icon text-success fa fa-truck"></i> Free Delivery within 1-2 weeks</p>
+</div> <!-- card-body.// -->
+
+</div> <!-- card.// -->
+
+	</aside> <!-- col.// -->
+	<aside class="col-lg-3">
+
+<div class="card mb-3">
+<div class="card-body">
+<form>
+	<div class="form-group">
+		<label>Have coupon?</label>
+		<div class="input-group">
+			<input type="text" class="form-control" name="" placeholder="Coupon code">
+			<span class="input-group-append">
+				<button class="btn btn-primary">Apply</button>
+			</span>
+		</div>
+	</div>
+</form>
+</div> <!-- card-body.// -->
+</div> <!-- card.// -->
+
+<div class="card">
+<div class="card-body">
+		<dl class="dlist-align">
+		  <dt>Total price:</dt>
+		  <dd class="text-right">$69.97</dd>
+		</dl>
+		<dl class="dlist-align">
+		  <dt>Discount:</dt>
+		  <dd class="text-right text-danger">- $10.00</dd>
+		</dl>
+		<dl class="dlist-align">
+		  <dt>Total:</dt>
+		  <dd class="text-right text-dark b"><strong>$59.97</strong></dd>
+		</dl>
+		<hr>
+		<p class="text-center mb-3">
+			<img src="../images/misc/payments.png" height="26">
+		</p>
+		<a href="#" class="btn btn-primary btn-block"> Make Purchase </a>
+		<a href="#" class="btn btn-light btn-block">Continue Shopping</a>
+</div> <!-- card-body.// -->
+</div> <!-- card.// -->
+
+	</aside> <!-- col.// -->
+
+
+</div> <!-- row.// -->
+<!-- ============================ COMPONENT 1 END .// ================================= -->
+
+<br>
+
+
+<div class="row">
+	<aside class="col-md-9">
+<!-- ============================ COMPONENT 3  ================================= -->
+
+<div class="card mb-3">
+<!--	<article class="card-body">-->
+<!--		<header class="mb-4">-->
+<!--			<h4 class="card-title">Review cart</h4>-->
+<!--		</header>-->
+<!--			<div class="row">-->
+<!--				<div class="col-md-6">-->
+<!--					<figure class="itemside  mb-3">-->
+<!--						<div class="aside"><img src="../images/items/1.jpg" class="border img-xs"></div>-->
+<!--						<figcaption class="info">-->
+<!--							<p>Name of the product goes here or title </p>-->
+<!--							<span>2x $290 = Total: $430 </span>-->
+<!--						</figcaption>-->
+<!--					</figure>-->
+<!--				</div> &lt;!&ndash; col.// &ndash;&gt;-->
+<!--				<div class="col-md-6">-->
+<!--					<figure class="itemside  mb-3">-->
+<!--						<div class="aside"><img src="../images/items/2.jpg" class="border img-xs"></div>-->
+<!--						<figcaption class="info">-->
+<!--							<p>Name of the product goes here or title </p>-->
+<!--							<span>2x $290 = Total: $430 </span>-->
+<!--						</figcaption>-->
+<!--					</figure>-->
+<!--				</div> &lt;!&ndash; col.// &ndash;&gt;-->
+<!--				<div class="col-md-6">-->
+<!--					<figure class="itemside mb-3">-->
+<!--						<div class="aside"><img src="../images/items/3.jpg" class="border img-xs"></div>-->
+<!--						<figcaption class="info">-->
+<!--							<p>Name of the product goes here or title </p>-->
+<!--							<span>1x $290 = Total: $290 </span>-->
+<!--						</figcaption>-->
+<!--					</figure>-->
+<!--				</div> &lt;!&ndash; col.// &ndash;&gt;-->
+<!--				<div class="col-md-6">-->
+<!--					<figure class="itemside  mb-3">-->
+<!--						<div class="aside"><img src="../images/items/4.jpg" class="border img-xs"></div>-->
+<!--						<figcaption class="info">-->
+<!--							<p>Name of the product goes here or title </p>-->
+<!--							<span>4x $290 = Total: $430 </span>-->
+<!--						</figcaption>-->
+<!--					</figure>-->
+<!--				</div> &lt;!&ndash; col.// &ndash;&gt;-->
+<!--			</div> &lt;!&ndash; row.// &ndash;&gt;-->
+<!--	</article> &lt;!&ndash; card-body.// &ndash;&gt;-->
+	<article class="card-body border-top">
+
+		<dl class="row">
+		  <dt class="col-sm-10">Subtotal: <span class="float-right text-muted">2 items</span></dt>
+		  <dd class="col-sm-2 text-right"><strong>$1,568</strong></dd>
+
+		  <dt class="col-sm-10">Discount: <span class="float-right text-muted">10% offer</span></dt>
+		  <dd class="col-sm-2 text-danger text-right"><strong>$29</strong></dd>
+
+		  <dt class="col-sm-10">Delivery charge: <span class="float-right text-muted">Express delivery</span></dt>
+		  <dd class="col-sm-2 text-right"><strong>$120</strong></dd>
+
+		  <dt class="col-sm-10">Tax: <span class="float-right text-muted">5%</span></dt>
+		  <dd class="col-sm-2 text-right text-success"><strong>$7</strong></dd>
+
+		  <dt class="col-sm-10">Total:</dt>
+		  <dd class="col-sm-2 text-right"><strong class="h5 text-dark">$1,650</strong></dd>
+		</dl>
+
+	</article> <!-- card-body.// -->
+</div> <!-- card.// -->
+<!-- ============================ COMPONENT 3  ================================= -->
+
+	</aside> <!-- col.// -->
+
+</div> <!-- row.// -->
+
+
+</div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+{% endblock content %}
