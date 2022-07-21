@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-# from shop.models import *
+from shop.models import *
 from shop.models import products
 from cart.models import *
 from django.core.exceptions import ObjectDoesNotExist
@@ -37,16 +37,30 @@ def add_cart(request, product_id):
         ct.save()
     try:
         ct_items = items.objects.get(prodt=prod, cart=ct)
-        if ct_items.quan < ct_items.prodt.stock:
-            ct_items.quan += 1
+        if ct_items.Quan < ct_items.prodt.stock:
+            ct_items.Quan += 1
         ct_items.save()
     except items.DoesNotExist:
         ct_items = items.objects.create(prodt=prod, Quan=1, cart=ct)
         ct_items.save()
     return redirect('cartDetails')
 
-    def min_cart(request):
-        pass
 
-    def cart_delete(request):
-        pass
+def min_cart(request, product_id):
+    ct = cartlist.objects.get(cart_id=c_id(request))
+    prod = get_object_or_404(products, id=product_id)
+    c_items = items.objects.get(prodt=prod, cart=ct)
+    if c_items.Quan > 1:
+        c_items.Quan -= 1
+        c_items.save()
+    else:
+        c_items.delete()
+    return redirect('cartDetails')
+
+
+def cart_delete(request, product_id):
+    ct = cartlist.objects.get(cart_id=c_id(request))
+    prod = get_object_or_404(products, id=product_id)
+    c_items = items.objects.get(prodt=prod, cart=ct)
+    c_items.delete()
+    return redirect('cartDetails')

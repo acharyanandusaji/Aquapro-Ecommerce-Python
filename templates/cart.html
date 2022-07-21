@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<style>
+	button{
+	display: inline-block;
+  	font-size: 16px;
+  	margin: 4px 2px;
+  	}
+</style>
 <section class="section-content padding-y bg">
 <div class="container">
 
@@ -16,6 +22,7 @@
   <th scope="col">Product</th>
   <th scope="col" width="120">Quantity</th>
   <th scope="col" width="120">Price</th>
+  <th scope="col" width="120">Total Price</th>
   <th scope="col" class="text-right" width="200"> </th>
 </tr>
 </thead>
@@ -24,20 +31,21 @@
 <tr>
 	<td>
 		<figure class="itemside align-items-center">
-			<div class="aside"><img src="{{i.prodt.img.url}}" class="img-sm"></div>
+			<div class="aside"><a href="{{i.prodt.get_url}}"><img src="{{i.prodt.img.url}}" alt="{{i.prodt.name}}" class="img-sm"></div><a/>
 			<figcaption class="info">
-				<a href="#" class="title text-dark">{{i.prodt.name}}</a>
+				<a href="{{i.prodt.get_url}}" class="title text-dark">{{i.prodt.id}}{{i.prodt.name}}</a>
 				<p class="text-muted small">Matrix: 25 Mpx <br> Brand: Canon</p>
 			</figcaption>
 		</figure>
 	</td>
 	<td>
-		<select class="form-control">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-		</select>
+		<p><a href="{% url 'add_cart' i.prodt.id %}"><button style="display: inline-block;font-size: 15px;margin: 0px -7px;border-radius: 50%;" type="button" class="btn">+</button></a> {{i.Quan}} <a href="{% url 'dec_cart' i.prodt.id %}"> <button style="display: inline-block;font-size: 15px;margin: 0px -7px;border-radius: 50%;" type="button" class="btn">–</button></a></p>
+	</td>
+	<td>
+		<div class="price-wrap">
+			<var class="price">₹ {{i.prodt.price}}</var>
+
+		</div> <!-- price-wrap .// -->
 	</td>
 	<td>
 		<div class="price-wrap">
