@@ -45,11 +45,7 @@
 					<div class="price-wrap mt-2">
 						<small class="price-old">{{i.desc | truncatewords:5}}</small><br>
 						<span class="price">₹ {{i.price}}</span>
-						{% if i.stock <= 0 %}
-						<h6 style="color:red">Out Of Stock.</h6>
-						{% else %}
-						<a href="" class="btn btn-sm btn-outline-primary float-right">Add to cart <i class="fa fa-shopping-cart"></i></a>
-						{% endif %}
+						
 					</div> <!-- price-wrap.// -->
 			</figcaption>
 		</figure> <!-- card // -->

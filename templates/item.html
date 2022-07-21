@@ -97,7 +97,7 @@
 	<h1 style="color:red"> Sorry, This Product is Out Of Stock.</h1>
 	{% else %}
 	<a href="#" class="btn  btn-primary"> Buy now </a>
-	<a href="{% url 'addcart' pr.id %}" class="btn  btn-outline-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+	<a href="{% url 'add_cart' pr.id %}" class="btn  btn-outline-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
 	{% endif %}
 </article> <!-- product-info-aside .// -->
 		</main> <!-- col.// -->
