@@ -26,9 +26,6 @@ urlpatterns = [
     path('cart/', include('cart.urls')),
     # path('accounts/', include('accounts.urls')),
     path('', include('shop.urls')),
-
-    url(r'^public/media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}),
-    url(r'^public/static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
