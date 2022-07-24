@@ -1,0 +1,1 @@
+web gunicorn aquapro.wsgi:application --log-file -
