@@ -44,3 +44,10 @@ def searching(request):
         prod = products.objects.all().filter(Q(name__contains=query) | Q(desc__contains=query))
 
     return render(request, 'search.html', {'qr': query, 'pr': prod})
+
+def about(request):
+    return render(request, 'aboutus.html',)
+
+def payment(request):
+    return render(request, 'payment.html',)
+
