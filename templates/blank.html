@@ -71,28 +71,22 @@ $(document).ready(function() {
 <div class="row align-items-center">
 	<div class="col-lg-2 col-4">
 		<div class="brand-wrap">
-			<a  href="/" ><img src="{% static 'images/Aquapro.png' %}" style="height:50px; width: auto; margin-right: -10px;"></a>
+			<a  href="" ><img src="{% static 'images/Aquapro.png' %}" style="height:50px; width: auto; margin-right: -10px;"></a>
 		</div> <!-- brand-wrap.// -->
 	</div>
-	<div class="col-lg-6 col-sm-12">
-		<!--			Search Section-->
-		<form action="{% url 'search' %}" class="search" method="GET">
-			<div class="input-group w-100">
-			    <input type="text" class="form-control" placeholder="Search" name="q">
-			    <div class="input-group-append">
-			      <button class="btn btn-primary" type="submit">
-			        <i class="fa fa-search"></i>
-			      </button>
-			    </div>
-		    </div>
-		</form> <!-- search-wrap .end// -->
-	</div> <!-- col.// -->
+
 	<div class="col-lg-4 col-sm-6 col-8">
 		<div class="widgets-wrap float-md-right">
-			<div class="widget-header  mr-3">
-				<a href="{% url 'cartDetails' %}" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
 
-				<span class="badge badge-pill badge-danger notify">{{itc}}</span>
+			<div class="widget-header icontext">
+				<a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
+				<div class="text">
+					<span class="text-muted">Welcome!</span>
+					<div>
+						<a href="{% url 'login' %}">Log in</a> |
+						<a href="{% url 'register' %}"> Register</a>
+					</div>
+				</div>
 			</div>
 		</div> <!-- widgets-wrap.// -->
 	</div> <!-- col.// -->
@@ -108,22 +102,9 @@ $(document).ready(function() {
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="main_nav">
-      <ul class="navbar-nav">
-
-		<a class="nav-link" href="{% url 'hm' %}">All Products</a>
-		  	{% for i in ct %}
-        <li class="nav-item">
-
-			<a class="nav-link" href="{{i.get_url}}">{{i.name|title}}</a>
-        </li>
-		  {% endfor %}
-      </ul>
-    </div> <!-- collapse .// -->
   </div> <!-- container .// -->
 </nav>
 
-</header> <!-- section-header.// -->
 {% block content %}
 
 {% endblock content %}
@@ -195,10 +176,5 @@ $(document).ready(function() {
 
 
 </body>
-</html>
-
-
-
-
 
 

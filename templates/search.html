@@ -15,21 +15,7 @@
 		<div class="col-md-6">
 			<div class="info-main">
 				<a href="#" class="h5 title">{{i.name}}</a>
-				<div class="rating-wrap mb-3">
-					<ul class="rating-stars">
-						<li style="width:80%" class="stars-active">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i>
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-						</li>
-						<li>
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i>
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-						</li>
-					</ul>
-					<div class="label-rating">7/10</div>
-				</div> <!-- rating-wrap.// -->
+
 
 				<p> {{i.desc}}} </p>
 			</div> <!-- info-main.// -->
@@ -42,9 +28,7 @@
 				<p class="text-success">Free shipping</p>
 				<br>
 				<p>
-					<a href="#" class="btn btn-primary btn-block"> Details </a>
-					<a href="#" class="btn btn-light btn-block"><i class="fa fa-heart"></i>
-						<span class="text">Add to wishlist</span>
+					<a href="{{i.get_url}}" class="btn btn-primary btn-block"> Details </a>
 					</a>
 				</p>
 			</div> <!-- info-aside.// -->
